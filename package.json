@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/mdblr/capstone-frontend#readme",
   "devDependencies": {
-    "electron-prebuilt": "^1.2.6"
+    "angular": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "electron-prebuilt": "^1.2.6",
+    "materialize-css": "^0.97.6"
   }
 }
