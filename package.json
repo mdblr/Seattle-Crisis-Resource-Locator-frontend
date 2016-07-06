@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Seattle Crisis Resources Locator",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .  "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdblr/capstone-frontend.git"
+  },
+  "author": "Max Dobler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdblr/capstone-frontend/issues"
+  },
+  "homepage": "https://github.com/mdblr/capstone-frontend#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.6"
+  }
+}
