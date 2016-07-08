@@ -1,6 +1,47 @@
+<a ui-sref='/login'>Back</a>
 <div>
   <ui-gmap-google-map center='ctrl.map.center' zoom='ctrl.map.zoom'></ui-gmap-google-map>
-  <div ng-repeat='resource in ctrl.resources'>
-    {{resource}}
-  </div>
+  <h2>Meals, Food, Etc.</h2>
+  <ul>
+    <li ng-repeat='resource in ctrl.views.food'>
+      {{resource}}
+    </li>
+  </ul>
+  <h2>Clothing</h2>
+  <ul>
+    <li ng-repeat='resource in ctrl.views.clothing'>
+      {{resource}}
+    </li>
+  </ul>
+  <h2>Shelter</h2>
+  <ul>
+    <li ng-repeat='resource in ctrl.views.shelter'>
+      {{resource}}
+    </li>
+  </ul>
+  <h2>Showers, etc.</h2>
+  <ul>
+    <li ng-repeat='resource in ctrl.views.hygiene'>
+      {{resource}}
+    </li>
+  </ul>
+  <h2>Health</h2>
+  <ul>
+    <li ng-repeat='resource in ctrl.views.health'>
+      {{resource}}
+    </li>
+  </ul>
+  <h2>Human Resource Center</h2>
+  <ul>
+    <li ng-repeat='resource in ctrl.views.human'>
+      {{resource}}
+    </li>
+  </ul>
+  <h2>Free Access to Computer and Internet</h2>
+  <ul>
+    <li ng-repeat='resource in ctrl.views.tech'>
+      {{resource}}
+    </li>
+  </ul>
+
 </div>
