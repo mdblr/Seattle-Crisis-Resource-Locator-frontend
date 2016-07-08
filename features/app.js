@@ -10,8 +10,8 @@
 
   function ngGoogleMaps(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
-      key: 'AIzaSyCBJa7t5PUpcnGTVgtoOqvWOBbwuPcPazA',
-      v: '3.20', //defaults to latest 3.X anyhow
+      key: process.env.googKey,
+      v: '3.20',
       libraries: 'weather,geometry,visualization'
     });
   }
