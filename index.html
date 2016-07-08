@@ -3,22 +3,26 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Seattle Crisis Resources Locator</title>
-
-    <!-- <script type="text/javascript" src='node_modules/angular/angular.js'></script>></script>
-    <script type="text/javascript" src='node_modules/angular-ui-router/release/angular-ui-router.js'></script>></script> -->
-
+    <title>Seattle Crisis Resource Locator</title>
     <script>
+      require('lodash');
       require('angular');
       require('angular-ui-router');
-      require('./js/app');
-    </script>
+      require('angular-simple-logger');
+      require('angular-google-maps');
+      require('./features/app')
+      require('./features/login/login.ctrl')
+      require('./features/login/login.service')
+      require('./features/resource/resource.ctrl')
+      require('./features/resource/resource.service')
 
+    </script>
+    <link rel='stylesheet' type='text/css' href='./css/style.css' />
   </head>
   <body>
 
-    <div ui-view='config'></div>
-    <div ui-view='dash'></div>
+    <div ui-view='login'></div>
+    <div ui-view='resource'></div>
 
   </body>
 </html>
