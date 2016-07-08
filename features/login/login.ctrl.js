@@ -12,12 +12,13 @@
       vm.submit = function(addr) {
         Login.locate(addr)
         .then( function successCallback(res) {
-          ReSrc.store(res.data);
+          let services = ReSrc.parse(res.data);
+          ReSrc.store(services);
           $state.go('resource');
         }, function errorCallback(err) {
           vm.results = err;
         });
       }
     }
-  
+
 })();
