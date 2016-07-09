@@ -8,18 +8,27 @@
   function ReSrc() {
 
     let resources;
+    let services;
 
-    const store = results => {
+    const storeResourceRes = results => {
       resources = results;
     }
 
-    const get = () => {
+    const storeServices = parsed_data => {
+      services = parsed_data;
+    }
+
+    const getResourceRes = () => {
       return resources;
     }
 
-    const parse = data => {
+    const getServices = () => {
+      return services;
+    }
 
-      let parsed_data = {
+    const parseServices = data => {
+
+      let services = {
         loc_req: data.req,
         technology: [],
         health: [],
@@ -38,13 +47,13 @@
                 .forEach(item => {
                   service[item] = org[item];
                 });
-                parsed_data[ctgry].push(service);
+                services[ctgry].push(service);
               }
             })
           })
         })
       }
-      return parsed_data;
+      return services;
     }
 
     const orgMatrServ = (materialServices, newHolder) => {
@@ -54,9 +63,11 @@
     }
 
     return {
-      store,
-      get,
-      parse,
+      storeResourceRes,
+      storeServices,
+      getResourceRes,
+      getServices,
+      parseServices,
       orgMatrServ
     }
   }
