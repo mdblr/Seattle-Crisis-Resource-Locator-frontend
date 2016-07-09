@@ -12,8 +12,9 @@
       vm.submit = function(addr) {
         Login.locate(addr)
         .then( function successCallback(res) {
-          let services = ReSrc.parse(res.data);
-          ReSrc.store(services);
+          ReSrc.storeResourceRes(res.data);
+          let services = ReSrc.parseServices(res.data);
+          ReSrc.storeServices(services);
           $state.go('resource');
         }, function errorCallback(err) {
           vm.results = err;
