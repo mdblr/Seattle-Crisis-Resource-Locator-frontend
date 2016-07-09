@@ -1,8 +1,21 @@
 <a ui-sref='/login'>Back</a>
 <div>
   <ui-gmap-google-map center='ctrl.map.center' zoom='ctrl.map.zoom'>
-    <ui-gmap-markers models='ctrl.markers' coords="'coords'"></ui-gmap-markers>
+
+    <ui-gmap-markers models='ctrl.map.markers' coords="'coords'" events='ctrl.map.markerEvents'></ui-gmap-markers>
+
+    <ui-gmap-window
+      show="ctrl.map.window.show"
+      coords="ctrl.map.window.model.coords"
+      templateUrl="ctrl.map.window.templateURL"
+      templateParameter="ctrl.map.window.model"
+      ng-cloak>
+    </ui-gmap-window>
+
+
   </ui-gmap-google-map>
+
+
 
   <h2>Meals, Food, Etc.</h2>
   <ul>
