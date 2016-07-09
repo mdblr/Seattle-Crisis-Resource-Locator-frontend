@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 (function() {
   angular
@@ -21,18 +21,31 @@
         human: services.human,
         tech: services.technology
       }
-
-      vm.markers = Markers.organizations()
-
       ReSrc.orgMatrServ(services.material, vm.views);
 
+      vm.markers = Markers.organizations()
       vm.map = {
         center: {
           latitude: services.loc_req.lat,
           longitude: services.loc_req.lng
         },
         zoom: 14,
-        markers: vm.markers
+        markers: vm.markers,
+        window: {
+          marker: {},
+          show: false,
+          templateURL: 'features/resource/map/marker.html',
+          closeClick: () => {
+            this.show = false;
+          },
+          options: {}
+        },
+        markerEvents: {
+          click: function(marker, eventName, model, args){
+            vm.map.window.model = model;
+            vm.map.window.show = true;
+          }
+        }
       };
     }
 
