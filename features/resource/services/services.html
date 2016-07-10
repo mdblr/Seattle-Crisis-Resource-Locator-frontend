@@ -1,0 +1,25 @@
+<div class='openSans'>
+  <div class='title'>
+    {{title}}
+  </div>
+  <ul>
+    <li ng-repeat='service in type'>
+
+      <div> {{service.name}} </div>
+      <div ng-if='health'> Type: {{service.subcategory}}</div>
+      <div> {{service.description}} </div>
+      <div ng-if='service.hours'> Hours: {{service.hours}} </div>
+      <div>
+        Contact: {{service.phone_1}}
+        <div ng-if='service.phone_2'>
+          {{service.phone_2}}
+        </div>
+        <div ng-if='service.email'>
+          {{service.email}}
+        </div>
+      </div>
+      <div> {{service.address}} </div>
+
+    </li>
+  </ul>
+</div>
