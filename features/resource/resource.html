@@ -1,63 +1,22 @@
 <a ui-sref='/login'>Back</a>
-<div>
-  <ui-gmap-google-map center='ctrl.map.center' zoom='ctrl.map.zoom'>
+<div class='row'>
+  <aside>
+    <ui-gmap-google-map center='ctrl.map.center' zoom='ctrl.map.zoom'>
+      <ui-gmap-markers models='ctrl.map.markers'
+      coords="'coords'"
+      events='ctrl.map.markerEvents'>
+      </ui-gmap-markers>
 
-    <ui-gmap-markers models='ctrl.map.markers' coords="'coords'" events='ctrl.map.markerEvents'></ui-gmap-markers>
-
-    <ui-gmap-window
-      show="ctrl.map.window.show"
-      coords="ctrl.map.window.model.coords"
-      templateUrl="ctrl.map.window.templateURL"
-      templateParameter="ctrl.map.window.model"
-      ng-cloak>
-    </ui-gmap-window>
-
-
+      <ui-gmap-window
+        show="ctrl.map.window.show"
+        coords="ctrl.map.window.model.coords"
+        templateUrl="ctrl.map.window.templateURL"
+        templateParameter="ctrl.map.window.model"
+        ng-cloak>
+      </ui-gmap-window>
   </ui-gmap-google-map>
+  </aside>
 
-
-
-  <h2>Meals, Food, Etc.</h2>
-  <ul>
-    <li ng-repeat='resource in ctrl.views.food'>
-      {{resource}}
-    </li>
-  </ul>
-  <h2>Clothing</h2>
-  <ul>
-    <li ng-repeat='resource in ctrl.views.clothing'>
-      {{resource}}
-    </li>
-  </ul>
-  <h2>Shelter</h2>
-  <ul>
-    <li ng-repeat='resource in ctrl.views.shelter'>
-      {{resource}}
-    </li>
-  </ul>
-  <h2>Showers, etc.</h2>
-  <ul>
-    <li ng-repeat='resource in ctrl.views.hygiene'>
-      {{resource}}
-    </li>
-  </ul>
-  <h2>Health</h2>
-  <ul>
-    <li ng-repeat='resource in ctrl.views.health'>
-      {{resource}}
-    </li>
-  </ul>
-  <h2>Human Resource Center</h2>
-  <ul>
-    <li ng-repeat='resource in ctrl.views.human'>
-      {{resource}}
-    </li>
-  </ul>
-  <h2>Free Access to Computer and Internet</h2>
-  <ul>
-    <li ng-repeat='resource in ctrl.views.tech'>
-      {{resource}}
-    </li>
-  </ul>
-
+  <dir-re-src object='ctrl.views'></dir-re-src>
+  .
 </div>
