@@ -1,25 +1,40 @@
-<div class='openSans'>
-  <div class='title'>
-    {{title}}
+<md-card class='openSans container'>
+  <div ng-animate-swap='vm.view' class='item swap-animation'>
+    <span class='title'>{{vm.view.title}}</span>
+    <md-card ng-if='vm.view.services.length === 0'>
+      <md-card-content>
+        <p>
+          There are no services for this resource within one mile
+        </p>
+      </md-card-content>
+    </md-card>
+    <md-card ng-repeat='service in vm.view.services'>
+      <li>
+        <header class='sub-title'>{{service.name}}</header>
+        <main class='content'>
+          <div ng-if='service.subcategory === "health"'>
+            Type: {{service.subcategory}}
+          </div>
+          <div>
+            {{service.description}}
+          </div>
+          <div ng-if='service.hours'>
+            Hours: {{service.hours}}
+          </div>
+          <div>
+            Contact: {{service.phone_1}}
+            <div ng-if='service.phone_2'>
+              {{service.phone_2}}
+            </div>
+            <div ng-if='service.email'>
+              {{service.email}}
+            </div>
+          </div>
+          <div>
+            {{service.address}}
+          </div>
+        </main>
+      </li>
+    </md-card>
   </div>
-  <ul>
-    <li ng-repeat='service in type'>
-
-      <div> {{service.name}} </div>
-      <div ng-if='health'> Type: {{service.subcategory}}</div>
-      <div> {{service.description}} </div>
-      <div ng-if='service.hours'> Hours: {{service.hours}} </div>
-      <div>
-        Contact: {{service.phone_1}}
-        <div ng-if='service.phone_2'>
-          {{service.phone_2}}
-        </div>
-        <div ng-if='service.email'>
-          {{service.email}}
-        </div>
-      </div>
-      <div> {{service.address}} </div>
-
-    </li>
-  </ul>
-</div>
+</md-card>

@@ -1,10 +1,9 @@
-<a ui-sref='/login'>Back</a>
 <div class='row'>
-  <aside>
+  <md-card>
     <ui-gmap-google-map center='ctrl.map.center' zoom='ctrl.map.zoom'>
       <ui-gmap-markers models='ctrl.map.markers'
-      coords="'coords'"
-      events='ctrl.map.markerEvents'>
+        coords="'coords'"
+        events='ctrl.map.markerEvents'>
       </ui-gmap-markers>
 
       <ui-gmap-window
@@ -14,9 +13,10 @@
         templateParameter="ctrl.map.window.model"
         ng-cloak>
       </ui-gmap-window>
-  </ui-gmap-google-map>
-  </aside>
+    </ui-gmap-google-map>
+  </md-card>
 
-  <dir-re-src></dir-re-src>
+  <dir-re-src>
+  </dir-re-src>
 
 </div>
