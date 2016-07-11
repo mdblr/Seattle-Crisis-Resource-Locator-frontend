@@ -1,10 +1,9 @@
 'use strict';
 const dotenv = require('dotenv').load();
 
-
 (function() {
     angular
-      .module('scrl-app', ['ui.router','uiGmapgoogle-maps',require('angular-animate')])
+      .module('scrl-app', ['ui.router','uiGmapgoogle-maps',require('angular-animate'),'ngMaterial'])
       .config(config)
       .config(ngGoogleMaps)
 
