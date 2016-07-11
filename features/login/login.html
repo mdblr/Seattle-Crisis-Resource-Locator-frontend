@@ -1,11 +1,12 @@
 <div id='login'>
-  <form id='submit' class='md-whiteframe-1dp openSans' ng-submit='ctrl.submit(ctrl.addr)'>
+  <form id='submit' class='openSans' ng-submit='ctrl.submit(ctrl.addr)'>
     <md-card>
       <md-input-container>
         <label>Enter Your Store's Location</label>
-        <input ng-model='ctrl.addr' type='text' length="300px" autofocus/>
-        <md-button class="btn1" ng-click='ctrl.submit(ctrl.addr);'> Submit </md-button>
+        <input ng-model='ctrl.addr' type='text' length="300px" autofocus required/>
+        <md-button class="md-raised md-cornered" ng-click='ctrl.submit(ctrl.addr);'>Submit</md-button>
       <md-input-container>
     </md-card>
   </form>
+  <span class='footer'>* Works well for Belltown, Downtown, Capital Hill, Central District, or Pioneer Square</span>
 </div>
