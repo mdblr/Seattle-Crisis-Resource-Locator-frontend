@@ -58,7 +58,7 @@
 
     const orgMatrServ = (materialServices, newHolder) => {
       materialServices.forEach(service => {
-        newHolder[service.subcategory.toLowerCase()].push(service);
+        newHolder[service.subcategory.toLowerCase()].services.push(service);
       })
     }
 
