@@ -15,7 +15,6 @@
 
         data.res.map(location => {
           location.map(org => {
-
             let model = {
               id: org.id,
               name: org.name,

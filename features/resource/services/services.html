@@ -1,14 +1,14 @@
 <md-card class='openSans container'>
-  <div ng-animate-swap='vm.view' class='item swap-animation'>
-    <span class='title'>{{vm.view.title}}</span>
-    <md-card ng-if='vm.view.services.length === 0'>
+  <div ng-animate-swap='ctrl.view' class='item swap-animation'>
+    <span class='title'>{{ctrl.view.title}}</span>
+    <md-card ng-if='ctrl.view.services.length === 0'>
       <md-card-content>
         <p>
           There are no services for this resource within one mile
         </p>
       </md-card-content>
     </md-card>
-    <md-card ng-repeat='service in vm.view.services'>
+    <md-card ng-repeat='service in ctrl.view.services'>
       <li>
         <header class='sub-title'>{{service.name}}</header>
         <main class='content'>

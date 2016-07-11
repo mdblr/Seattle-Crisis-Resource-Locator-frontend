@@ -1,9 +1,12 @@
 <div class='row'>
   <md-card>
-    <ui-gmap-google-map center='ctrl.map.center' zoom='ctrl.map.zoom'>
-      <ui-gmap-markers models='ctrl.map.markers'
+    <ui-gmap-google-map id='map' center='ctrl.map.center'
+    control='ctrl.map.control'
+    zoom='ctrl.map.zoom'>
+      <ui-gmap-markers  models='ctrl.map.markers'
         coords="'coords'"
-        events='ctrl.map.markerEvents'>
+        events='ctrl.map.markerEvents'
+        >
       </ui-gmap-markers>
 
       <ui-gmap-window
@@ -13,7 +16,11 @@
         templateParameter="ctrl.map.window.model"
         ng-cloak>
       </ui-gmap-window>
+
+      <ui-gmap-marker coords="ctrl.map.center" options='ctrl.map.options' idKey="1">
+
     </ui-gmap-google-map>
+
   </md-card>
 
   <dir-re-src>
