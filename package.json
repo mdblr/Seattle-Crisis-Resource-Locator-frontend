@@ -1,10 +1,11 @@
 {
-  "name": "frontend",
+  "name": "scrl",
   "version": "1.0.0",
   "description": "Seattle Crisis Resources Locator",
   "main": "index.js",
   "scripts": {
-    "start": "electron .  "
+    "start": "electron .  ",
+    "build": "rm -rf scrl-darwin-x64; electron-packager ./ --platform=darwin --arch=x64 && cp 20160712053858227_easyicon_net_128.icns scrl-darwin-x64/scrl.app/Contents/Resources/electron.icns; open ./scrl-darwin-x64/scrl.app"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "angular-simple-logger": "^0.1.7",
     "angular-ui-router": "^0.3.1",
     "dotenv": "^2.0.0",
+    "electron-packager": "^7.3.0",
     "electron-prebuilt": "^1.2.6",
     "lodash": "^4.13.1",
     "webfontloader": "^1.6.26"
