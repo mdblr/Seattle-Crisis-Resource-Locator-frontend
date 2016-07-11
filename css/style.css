@@ -4,6 +4,8 @@
 
 body {
   margin: auto;
+  background: url(img/artsfon.com-53173.jpg) no-repeat center fixed;
+  -webkit-background-size: cover;
 }
 
 .title {
@@ -23,7 +25,7 @@ body {
 .content {
   font-size: 1vw;
   font-weight: 400;
-  margin: .2vw; 
+  margin: .2vw;
 }
 
 .openSans {
@@ -47,6 +49,15 @@ form {
   width: 30vw;
 }
 
+#map-desc {
+  top: 1vh;
+  display: block;
+  position: relative;
+  font-size: 2.3vh;
+  text-align: center;
+  font-weight: 500
+}
+
 li {
   list-style-type: none;
   margin-top: 3vh;
@@ -56,6 +67,12 @@ li {
 .row {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -78,21 +95,13 @@ li div {
   overflow-y: auto;
 }
 
-.hide{
-  transition: .5s linear all;
-  opacity: 0;
-}
-
-.show{
-  transition: .5s linear all;
-  opacity: 1;
-}
 .container {
   height:97vh;
   width:46vw;
   position:relative;
   overflow:hidden;
   margin: 0 1vw 0 0;
+  top: 1.3vh;
 }
 
 .container .item {
@@ -100,6 +109,7 @@ li div {
   top:0;
   left:0;
   right:0;
+  padding: .8vw;
 }
 
 .swap-animation.ng-enter, .swap-animation.ng-leave {
@@ -121,8 +131,38 @@ li div {
   top: 97vh;
 }
 
-#login {
-  display: absolute;
-  background: url(img/artsfon.com-53173.jpg) no-repeat center fixed;
-  -webkit-background-size: cover !important;
+.footer {
+  text-decoration: none;
+  color: white;
+  opacity: .4;
+  margin-left: 1vw;
+}
+
+div.ng-enter {
+    /* transition on enter for .5s */
+    transition: 1.1s;
+
+    /* start with opacity 0 (invisible) */
+    opacity: 0;
+}
+
+/* end 'enter' transition on main view */
+div.ng-enter-active {
+    /* end with opacity 1 (fade in) */
+    opacity: 1;
+}
+
+#you-are-here {
+  display:inline;
+  max-height: 2%;
+  max-width: 2%;
+}
+
+#legend{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: .8vh;
+  font-weight: 500;
 }
