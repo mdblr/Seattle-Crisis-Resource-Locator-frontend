@@ -5,9 +5,9 @@
     .module('scrl-app')
     .controller('ReSrcCtrl', ReSrcCtrl)
 
-    ReSrcCtrl.$inject = ['ReSrc', 'Markers', '$interval', '$timeout', 'uiGmapGoogleMapApi'];
+    ReSrcCtrl.$inject = ['ReSrc', 'Markers', '$interval', 'uiGmapGoogleMapApi', '$timeout'];
 
-    function ReSrcCtrl(ReSrc, Markers, $interval, $timeout, uiGmapGoogleMapApi) {
+    function ReSrcCtrl(ReSrc, Markers, $interval, uiGmapGoogleMapApi, $timeout) {
 
       const vm = this;
       const services = ReSrc.getServices();
@@ -30,7 +30,12 @@
           closeClick: () => {
             this.show = false;
           },
-          options: {}
+          options: {
+            pixelOffset: {
+              width: 0,
+              height: -24
+            }
+          }
         },
         control: {},
         markerEvents: {
@@ -41,8 +46,23 @@
         }
       };
 
-      // const services = ReSrc.getServices();
       let views = {
+        health: {
+          title: 'Health',
+          services: services.health
+        },
+        hygiene: {
+          title: 'Hygiene',
+          services: []
+        },
+        human: {
+          title: 'Resource Centers',
+          services: services.human
+        },
+        tech: {
+          title: 'Internet',
+          services: services.technology
+        },
         food: {
           title: 'Places to Eat',
           services: []
@@ -54,22 +74,6 @@
         shelter: {
           title: 'Shelter',
           services: []
-        },
-        hygiene: {
-          title: 'Hygiene',
-          services: []
-        },
-        health: {
-          title: 'Health',
-          services: services.health
-        },
-        human: {
-          title: 'Resource Centers',
-          services: services.human
-        },
-        tech: {
-          title: 'Internet',
-          services: services.technology
         }
       }
 
@@ -85,7 +89,7 @@
         })
       }
 
-      vm.view = views['food'];
+      vm.view = views['health'];
 
       let count = 1;
       let keys = Object.keys(views);
@@ -99,13 +103,15 @@
       }
 
       uiGmapGoogleMapApi.then(function(maps) {
-        vm.map.markerEvents.trigger(vm.view.services[0].marker, 'click', vm.view.services[0].marker);
+        $timeout(()=> {
+          vm.map.markerEvents.trigger(vm.view.services[0].marker, 'click', vm.view.services[0].marker);
+        },1000);
         let countB = 1;
         $interval(()=> {
           if (countB === vm.view.services.length) countB = 0;
           vm.map.markerEvents.trigger(vm.view.services[countB].marker, 'click', vm.view.services[countB].marker);
           countB++;
-        }, 5000, 4);
+        }, 5333, 2);
       });
 
       $interval(() => {
@@ -130,18 +136,21 @@
         else {
           vm.view = views[keys[count]];
         }
+
         count++;
 
         uiGmapGoogleMapApi.then(function(maps) {
-          vm.map.markerEvents.trigger(vm.view.services[0].marker, 'click', vm.view.services[0].marker);
+          $timeout(()=> {
+            vm.map.markerEvents.trigger(vm.view.services[0].marker, 'click', vm.view.services[0].marker);
+          }, 150);
           let countB = 1;
           $interval(()=> {
             if (countB === vm.view.services.length) countB = 0;
             vm.map.markerEvents.trigger(vm.view.services[countB].marker, 'click', vm.view.services[countB].marker);
             countB++;
-          }, 5000, 4);
+          }, 5333, 2);
         });
-      }, 20000);
+      }, 16000);
     }
 
 })();
