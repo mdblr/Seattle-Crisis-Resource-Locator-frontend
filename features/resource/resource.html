@@ -1,8 +1,12 @@
 <div class='row'>
+
   <md-card>
+    <span id='map-desc'>Locations</span>
     <ui-gmap-google-map id='map' center='ctrl.map.center'
     control='ctrl.map.control'
-    zoom='ctrl.map.zoom'>
+    zoom='ctrl.map.zoom'
+
+    >
       <ui-gmap-markers  models='ctrl.map.markers'
         coords="'coords'"
         events='ctrl.map.markerEvents'
@@ -10,20 +14,26 @@
       </ui-gmap-markers>
 
       <ui-gmap-window
-        show="ctrl.map.window.show"
-        coords="ctrl.map.window.model.coords"
-        templateUrl="ctrl.map.window.templateURL"
-        templateParameter="ctrl.map.window.model"
-        ng-cloak>
+          show="ctrl.map.window.show"
+          coords="ctrl.map.window.model.coords"
+          templateUrl="ctrl.map.window.templateURL"
+          templateParameter="ctrl.map.window.model"
+          options='ctrl.map.window.options'
+          ng-cloak>
       </ui-gmap-window>
-
       <ui-gmap-marker coords="ctrl.map.center" options='ctrl.map.options' idKey="1">
-
     </ui-gmap-google-map>
+    <div id='legend'>
+        You are here: &nbsp;
+        <img id='you-are-here' src='https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+        />
+    </div>
+
 
   </md-card>
 
+
   <dir-re-src>
   </dir-re-src>
-
 </div>
+<a class='footer' ui-sref='index'>new location</a>
