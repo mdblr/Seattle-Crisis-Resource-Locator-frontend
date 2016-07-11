@@ -59,15 +59,42 @@
       vm.view = views['food'];
 
       ReSrc.orgMatrServ(services.material, views);
+
       let count = 1;
-      let cache = {};
-      const keys = Object.keys(views);
+      let keys = Object.keys(views);
+      let viewed = {
+        food:false,
+        clothing:false,
+        shelter:false,
+        hygiene:false,
+        health:false,
+        human:false
+      }
 
       $interval(() => {
         if (count === 7)  count = 0 ;
-        vm.view = views[keys[count]];
+
+        if (views[keys[count]].services.length > 3 && keys[count] !== 'tech') {
+          if (!viewed[keys[count]]) {
+            vm.view = {
+              title: views[keys[count]].title,
+              services: views[keys[count]].services.slice(0, 3),
+            }
+            viewed[keys[count]] = true;
+          }
+          else {
+            vm.view = {
+              title: views[keys[count]].title,
+              services: views[keys[count]].services.slice(3),
+            }
+            viewed[keys[count]] = false;
+          }
+        }
+        else {
+          vm.view = views[keys[count]];
+        }
         count++;
-      }, 20000);
+      }, 3000);
     }
   }
 })();
