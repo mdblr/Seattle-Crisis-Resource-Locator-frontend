@@ -5,23 +5,12 @@
     .module('scrl-app')
     .controller('ReSrcCtrl', ReSrcCtrl)
 
-    ReSrcCtrl.$inject = ['uiGmapGoogleMapApi', 'ReSrc', 'Markers'];
+    ReSrcCtrl.$inject = ['ReSrc', 'Markers', '$interval'];
 
-    function ReSrcCtrl(uiGmapGoogleMapApi, ReSrc, Markers) {
+    function ReSrcCtrl(ReSrc, Markers, $interval) {
 
       const vm = this;
       const services = ReSrc.getServices();
-
-      vm.views = {
-        food: [],
-        clothing: [],
-        shelter: [],
-        hygiene: [],
-        health: services.health,
-        human: services.human,
-        tech: services.technology
-      }
-      ReSrc.orgMatrServ(services.material, vm.views);
 
       vm.markers = Markers.organizations()
       vm.map = {
@@ -47,6 +36,7 @@
           }
         }
       };
+
     }
 
 })();
