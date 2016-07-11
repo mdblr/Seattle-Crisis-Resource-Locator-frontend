@@ -1,4 +1,11 @@
-<form ng-submit='ctrl.submit(ctrl.addr)'>
-  <input ng-model='ctrl.addr' type='text' /> <br />
-  <input type='submit' value='submit' />
-</form>
+<div id='login'>
+  <form id='submit' class='md-whiteframe-1dp openSans' ng-submit='ctrl.submit(ctrl.addr)'>
+    <md-card>
+      <md-input-container>
+        <label>Enter Your Store's Location</label>
+        <input ng-model='ctrl.addr' type='text' length="300px" autofocus/>
+        <md-button class="btn1" ng-click='ctrl.submit(ctrl.addr);'> Submit </md-button>
+      <md-input-container>
+    </md-card>
+  </form>
+</div>
