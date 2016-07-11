@@ -7,11 +7,23 @@ body {
 }
 
 .title {
-  font-size: 60px;
-  font-size: 5.3vw;
-  text-align:center;
+  top: 2vh;
+  display: block;
+  font-size: 5.1vw;
+  text-align: center;
   font-weight: 600;
   margin-bottom: 4vh;
+}
+
+.sub-title {
+  font-size: 1.5vw;
+  font-weight: 400;
+}
+
+.content {
+  font-size: 1vw;
+  font-weight: 400;
+  margin: .2vw; 
 }
 
 .openSans {
@@ -19,10 +31,9 @@ body {
 }
 
 .angular-google-map-container {
-  margin-left: 2vw;
-  width: 51vw;
-  height: 55vh;
-  top: -3vh;
+  margin: 1vw;
+  width: 50vw;
+  height: 50vh;
 }
 
 form {
