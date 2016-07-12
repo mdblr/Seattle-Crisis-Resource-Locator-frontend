@@ -166,3 +166,9 @@ div.ng-enter-active {
   bottom: .8vh;
   font-weight: 500;
 }
+
+.current {
+  z-index: 1000;
+  box-shadow: 0 0 5vh black;
+  position: relative;
+}
