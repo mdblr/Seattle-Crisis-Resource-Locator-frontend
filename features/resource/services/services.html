@@ -8,7 +8,7 @@
         </p>
       </md-card-content>
     </md-card>
-    <md-card ng-repeat='service in ctrl.view.services'>
+    <md-card ng-attr-id="{{service.org_id}}" ng-repeat='service in ctrl.view.services'>
       <li>
         <header class='sub-title'>{{service.name}}</header>
         <main class='content'>

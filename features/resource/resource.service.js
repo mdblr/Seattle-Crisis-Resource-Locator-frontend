@@ -5,7 +5,7 @@
     .module('scrl-app')
     .factory('ReSrc', ReSrc)
 
-  function ReSrc() {
+  function ReSrc(Serv) {
 
     let resources;
     let services;
@@ -53,6 +53,8 @@
           })
         })
       }
+
+
       return services;
     }
 
@@ -60,6 +62,8 @@
       materialServices.forEach(service => {
         newHolder[service.subcategory.toLowerCase()].services.push(service);
       })
+
+      Serv.sliceAt(newHolder); 
     }
 
     return {

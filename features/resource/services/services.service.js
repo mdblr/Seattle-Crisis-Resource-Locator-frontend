@@ -1,37 +1,22 @@
-function parseviews() {
+(function() {
+  angular
+    .module('scrl-app')
+    .factory('Serv', Serv)
 
-  const services = ReSrc.getServices();
-  let views = {
-    food: {
-      title: 'Places to Eat',
-      services: []
-    },
-    clothing: {
-      title: 'Clothing',
-      services: []
-    },
-    shelter: {
-      title: 'Shelter',
-      services: []
-    },
-    hygiene: {
-      title: 'Hygiene',
-      services: []
-    },
-    health: {
-      title: 'Health',
-      services: services.health
-    },
-    human: {
-      title: 'Resource Centers',
-      services: services.human
-    },
-    tech: {
-      title: 'Internet',
-      services: services.technology
+    function Serv() {
+
+      const sliceAt = views => {
+        for (view in views) {
+          views[view].services.map(service => {
+            if (service.description.length > 300) {
+              views[view].sliceAt = 2;
+            }
+          })
+        }
+      }
+
+      return {
+        sliceAt
+      }
     }
-  }
-
-  ReSrc.orgMatrServ(services.material, views)
-
-}
+})();

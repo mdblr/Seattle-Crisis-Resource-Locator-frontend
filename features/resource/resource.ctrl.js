@@ -5,14 +5,15 @@
     .module('scrl-app')
     .controller('ReSrcCtrl', ReSrcCtrl)
 
-    ReSrcCtrl.$inject = ['ReSrc', 'Markers', '$interval', 'uiGmapGoogleMapApi', '$timeout'];
+    ReSrcCtrl.$inject = ['ReSrc', 'Markers', 'uiGmapGoogleMapApi', '$interval', '$timeout'];
 
-    function ReSrcCtrl(ReSrc, Markers, $interval, uiGmapGoogleMapApi, $timeout) {
+    function ReSrcCtrl(ReSrc, Markers, uiGmapGoogleMapApi, $interval, $timeout) {
 
       const vm = this;
       const services = ReSrc.getServices();
 
       let markers = Markers.organizations()
+
       vm.map = {
         center: {
           latitude: services.loc_req.lat,
@@ -42,43 +43,67 @@
           trigger: function(marker, eventName, model, args) {
             vm.map.window.model = model;
             vm.map.window.show = true;
+            let cards = angular.element(document).find('md-card');
+            for (let i = 1; i < cards.length; i++) {
+              if (cards.eq(i).hasClass('current')) {
+                cards.eq(i).removeClass('current');
+              }
+            }
+            let card = document.getElementById(model.id);
+            angular.element(card).addClass('current');
+          },
+          click: function(marker, eventName, model, args) {
+            vm.map.window.model = model;
+            vm.map.window.show = true;
           }
         }
       };
 
+      uiGmapGoogleMapApi.then( function(maps) {
+        $timeout( () => {
+          vm.map.options.mapTypeId = google.maps.MapTypeId.SATELLITE;
+        }, 150)
+      });
+
       let views = {
         health: {
           title: 'Health',
-          services: services.health
+          services: services.health,
+          sliceAt: 3
         },
         hygiene: {
           title: 'Hygiene',
-          services: []
+          services: [],
+          sliceAt: 3
         },
         human: {
           title: 'Resource Centers',
-          services: services.human
+          services: services.human,
+          sliceAt: 3
         },
         tech: {
           title: 'Internet',
-          services: services.technology
+          services: services.technology,
+          sliceAt: 4
         },
         food: {
           title: 'Places to Eat',
-          services: []
+          services: [],
+          sliceAt: 3
         },
         clothing: {
           title: 'Clothing',
-          services: []
+          services: [],
+          sliceAt: 3
         },
         shelter: {
           title: 'Shelter',
-          services: []
+          services: [],
+          sliceAt: 3
         }
       }
 
       ReSrc.orgMatrServ(services.material, views);
-
       for (view in views) {
         views[view].services.forEach(service => {
           markers.forEach(mark => {
@@ -88,8 +113,6 @@
           })
         })
       }
-
-      vm.view = views['health'];
 
       let count = 1;
       let keys = Object.keys(views);
@@ -102,10 +125,16 @@
         human:false
       }
 
+      vm.view = {
+        title: views.health.title,
+        services: views.health.services.slice(0, views.health.sliceAt)
+      }
+      viewed.health = true;
+
       uiGmapGoogleMapApi.then(function(maps) {
         $timeout(()=> {
           vm.map.markerEvents.trigger(vm.view.services[0].marker, 'click', vm.view.services[0].marker);
-        },1000);
+        },2000);
         let countB = 1;
         $interval(()=> {
           if (countB === vm.view.services.length) countB = 0;
@@ -121,14 +150,14 @@
           if (!viewed[keys[count]]) {
             vm.view = {
               title: views[keys[count]].title,
-              services: views[keys[count]].services.slice(0, 3),
+              services: views[keys[count]].services.slice(0, views[keys[count]].sliceAt),
             }
             viewed[keys[count]] = true;
           }
           else {
             vm.view = {
               title: views[keys[count]].title,
-              services: views[keys[count]].services.slice(3),
+              services: views[keys[count]].services.slice(views[keys[count]].sliceAt),
             }
             viewed[keys[count]] = false;
           }

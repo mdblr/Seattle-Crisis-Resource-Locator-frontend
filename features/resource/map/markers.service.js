@@ -5,6 +5,8 @@
 
     Markers.$inject = ['ReSrc'];
 
+
+
     function Markers(ReSrc) {
 
       let models = []
@@ -12,6 +14,8 @@
       const organizations = () => {
 
         const data = ReSrc.getResourceRes();
+
+        if (models.length > 0) models.length = 0;
 
         data.res.map(location => {
           location.map(org => {
