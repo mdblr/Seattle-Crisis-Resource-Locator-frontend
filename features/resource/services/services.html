@@ -1,40 +1,38 @@
-<md-card class='openSans container'>
-  <div ng-animate-swap='ctrl.view' class='item swap-animation'>
-    <span class='title'>{{ctrl.view.title}}</span>
-    <md-card ng-if='ctrl.view.services.length === 0'>
-      <md-card-content>
-        <p>
-          There are no services for this resource within one mile
-        </p>
-      </md-card-content>
-    </md-card>
-    <md-card ng-attr-id="{{service.org_id}}" ng-repeat='service in ctrl.view.services'>
-      <li>
-        <header class='sub-title'>{{service.name}}</header>
-        <main class='content'>
-          <div ng-if='service.health'>
-            Type: {{service.subcategory}}
+<div ng-animate-swap='ctrl.view' class='item swap-animation whiteFont'>
+  <span class='title'>{{ctrl.view.title}}</span>
+  <md-card class='service whiteFont' ng-if='ctrl.view.services.length === 0'>
+    <md-card-content>
+      <p>
+        There are no services for this resource within one mile
+      </p>
+    </md-card-content>
+  </md-card>
+  <md-card class='service whiteFont' ng-attr-id="{{service.org_id}}" ng-repeat='service in ctrl.view.services'>
+    <li class='details'>
+      <header class='sub-title'>{{service.name}}</header>
+      <main class='content'>
+        <div ng-if='service.health'>
+          Type: {{service.subcategory}}
+        </div>
+        <div>
+          {{service.description}}
+        </div>
+        <div ng-if='service.hours'>
+          Hours: {{service.hours}}
+        </div>
+        <div>
+          Contact: {{service.phone_1}}
+          <div ng-if='service.phone_2'>
+            {{service.phone_2}}
           </div>
-          <div>
-            {{service.description}}
+          <div ng-if='service.email'>
+            {{service.email}}
           </div>
-          <div ng-if='service.hours'>
-            Hours: {{service.hours}}
-          </div>
-          <div>
-            Contact: {{service.phone_1}}
-            <div ng-if='service.phone_2'>
-              {{service.phone_2}}
-            </div>
-            <div ng-if='service.email'>
-              {{service.email}}
-            </div>
-          </div>
-          <div>
-            {{service.address}}
-          </div>
-        </main>
-      </li>
-    </md-card>
-  </div>
-</md-card>
+        </div>
+        <div>
+          {{service.address}}
+        </div>
+      </main>
+    </li>
+  </md-card>
+</div>

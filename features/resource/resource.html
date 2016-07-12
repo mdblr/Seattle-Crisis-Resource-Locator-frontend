@@ -1,7 +1,7 @@
 <div class='row'>
 
-  <md-card>
-    <span id='map-desc'>Locations</span>
+  <md-card class='container-bg'>
+    <span id='map-desc' class='whiteFont'>Locations</span>
     <ui-gmap-google-map id='map' center='ctrl.map.center'
     control='ctrl.map.control'
     zoom='ctrl.map.zoom'
@@ -23,8 +23,8 @@
       </ui-gmap-window>
       <ui-gmap-marker coords="ctrl.map.center" options='ctrl.map.options' idKey="1">
     </ui-gmap-google-map>
-    <div id='legend'>
-        You are here: &nbsp;
+    <div id='legend' class='whiteFont'>
+        {{ctrl.address}} &nbsp;
         <img id='you-are-here' src='https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
         />
     </div>
@@ -32,8 +32,10 @@
 
   </md-card>
 
+  <md-card class='openSans container container-bg'>
+    <dir-re-src>
+    </dir-re-src>
+  </md-card>
 
-  <dir-re-src>
-  </dir-re-src>
 </div>
 <a class='footer' ui-sref='index'>new location</a>

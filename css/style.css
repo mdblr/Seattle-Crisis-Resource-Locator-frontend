@@ -38,6 +38,11 @@ body {
   height: 50vh;
 }
 
+.details {
+  position: relative;
+  top: -2vh;
+}
+
 form {
   font-weight: 400;
 }
@@ -102,6 +107,19 @@ li div {
   overflow:hidden;
   margin: 0 1vw 0 0;
   top: 1.3vh;
+}
+
+.container-bg {
+  background-color: #4285F4;
+}
+
+.service {
+  padding: 1vw 0 0 1vw;
+  background-color: #00539B;
+}
+
+.whiteFont {
+  color: white;
 }
 
 .container .item {
