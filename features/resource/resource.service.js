@@ -9,6 +9,14 @@
 
     let resources;
     let services;
+    let address;
+
+    const saveAddr = addr => {
+      address = addr;
+    }
+    const getAddr = () => {
+      return address;
+    }
 
     const storeResourceRes = results => {
       resources = results;
@@ -63,7 +71,7 @@
         newHolder[service.subcategory.toLowerCase()].services.push(service);
       })
 
-      Serv.sliceAt(newHolder); 
+      Serv.sliceAt(newHolder);
     }
 
     return {
@@ -72,7 +80,9 @@
       getResourceRes,
       getServices,
       parseServices,
-      orgMatrServ
+      orgMatrServ,
+      saveAddr,
+      getAddr
     }
   }
 
