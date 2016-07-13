@@ -14,6 +14,7 @@
 
       let markers = Markers.organizations()
 
+      vm.address = ReSrc.getAddr();
       vm.map = {
         center: {
           latitude: services.loc_req.lat,
@@ -140,7 +141,7 @@
           if (countB === vm.view.services.length) countB = 0;
           vm.map.markerEvents.trigger(vm.view.services[countB].marker, 'click', vm.view.services[countB].marker);
           countB++;
-        }, 5333, 2);
+        }, 8000, 2);
       });
 
       $interval(() => {
@@ -177,9 +178,9 @@
             if (countB === vm.view.services.length) countB = 0;
             vm.map.markerEvents.trigger(vm.view.services[countB].marker, 'click', vm.view.services[countB].marker);
             countB++;
-          }, 5333, 2);
+          }, 8000);
         });
-      }, 16000);
+      }, 32000);
     }
 
 })();
