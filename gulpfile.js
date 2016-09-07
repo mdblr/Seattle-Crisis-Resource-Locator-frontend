@@ -1,7 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
-const gulpConfig = require('ng-gulp-config');
+const gulpConfig = require('gulp-ng-config');
 
 let configureSetup = {
   createModule: false,
