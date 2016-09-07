@@ -1,3 +1,0 @@
-{
-  "googKey": "foo"
-}
