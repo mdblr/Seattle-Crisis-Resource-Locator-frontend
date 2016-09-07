@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "Seattle Crisis Resources Locator",
   "main": "index.js",
-  "scripts": {
-    "start": "electron .  ",
-      "build": "rm -rf scrl-darwin-x64; electron-packager ./ --platform=darwin --arch=x64 && cp 20160712053858227_easyicon_net_128.icns scrl-darwin-x64/scrl.app/Contents/Resources/electron.icns; open ./scrl-darwin-x64/scrl.app"
-  },
+  "scripts": ,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mdblr/capstone-frontend.git"
