@@ -2,7 +2,7 @@
 
 (function() {
     angular
-      .module('scrl-app', ['ui.router','uiGmapgoogle-maps', require('angular-animate'),'ngMaterial'])
+      .module('scrl-app', ['ui.router','uiGmapgoogle-maps', 'ngAnimate','ngMaterial'])
       .config(config)
       .config(ngGoogleMaps)
       .run(run)
