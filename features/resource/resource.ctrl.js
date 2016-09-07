@@ -11,7 +11,6 @@
 
     const vm = this;
     const services = ReSrc.getServices();
-
     let markers = Markers.organizations()
 
     vm.address = ReSrc.getAddr();
@@ -46,12 +45,6 @@
           vm.map.window.show = true;
           let cards = angular.element(document).find('md-card');
           let current;
-          // if (!current === document.getElementById(model.id)) {
-          //   if (current) angular.element(current).removeClass('current');
-          //   current = getElementById(model.id);
-          //   angular.element(current).addClass('current');
-          // }
-          //
           for (let i = 1; i < cards.length; i++) {
             if (cards.eq(i).hasClass('current')) {
               cards.eq(i).removeClass('current');
