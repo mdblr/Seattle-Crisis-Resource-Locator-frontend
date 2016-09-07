@@ -1,6 +1,10 @@
-var express = require('express');
-var app = express();
-var port = process.env.PORT || 8080;
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8080;
+const gulp = require('gulp');
+require('./gulpfile');
+
+gulp.start('config');
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function(req, res) {
