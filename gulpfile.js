@@ -6,7 +6,7 @@ const gulpConfig = require('gulp-ng-config');
 let configureSetup = {
   createModule: false,
   constants : {
-    googKey : process.env.googKey
+    googKey : process.env.googKey,
   }
 };
 
