@@ -10,10 +10,10 @@
   function Login($http, ReSrc) {
 
     const locate = addr => {
-      ReSrc.saveAddr(addr); 
+      ReSrc.saveAddr(addr);
       return $http({
                 method: 'POST',
-                url: 'http://sea-crisis-resource.herokuapp.com/api/nearby',
+                url: 'https://sea-crisis-resource.herokuapp.com/api/nearby',
                 data: { addr: addr }
               });
     }
