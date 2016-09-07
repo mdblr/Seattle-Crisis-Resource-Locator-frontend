@@ -4,7 +4,7 @@
   "description": "Seattle Crisis Resources Locator",
   "main": "index.js",
   "scripts": {
-    "start": "superstatic"
+    "start": ""
   },
   "repository": {
     "type": "git",
