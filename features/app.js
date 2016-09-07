@@ -1,5 +1,4 @@
 'use strict';
-// const dotenv = require('dotenv').load();
 
 (function() {
     angular
@@ -8,7 +7,7 @@
       .config(ngGoogleMaps)
       .run(run)
 
-  config.$inject = ['$stateProvider'];
+  config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
   function ngGoogleMaps(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
@@ -18,10 +17,10 @@
     });
   }
 
-  function config($stateProvider) {
+  function config($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('index', {
-        url: '',
+        url: '/',
         views: {
           'login': {
             templateUrl: 'features/login/login.html',
@@ -39,7 +38,9 @@
             controllerAs: 'ctrl'
           }
         }
-      })
+      });
+
+      $urlRouterProvider.otherwise('/');
   }
 
   function run($window, $state) {
@@ -47,5 +48,5 @@
       $state.go('index');
     };
   }
-  
+
 })();
