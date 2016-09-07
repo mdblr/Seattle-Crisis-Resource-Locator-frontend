@@ -6,12 +6,13 @@
       .module('scrl-app', ['ui.router','uiGmapgoogle-maps','ngAnimate','ngMaterial'])
       .config(config)
       .config(ngGoogleMaps)
+      .run(run)
 
   config.$inject = ['$stateProvider'];
 
   function ngGoogleMaps(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
-      key:'',
+      key:'AIzaSyCBJa7t5PUpcnGTVgtoOqvWOBbwuPcPazA',
       v: '3.20',
       libraries: 'weather,geometry,visualization'
     });
@@ -40,4 +41,11 @@
         }
       })
   }
+
+  function run($window, $state) {
+    $window.onbeforeunload = function () {
+      $state.go('index');
+    };
+  }
+  
 })();
