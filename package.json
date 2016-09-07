@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Seattle Crisis Resources Locator",
   "main": "index.js",
+  "scripts": {
+    "start": "superstatic"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mdblr/capstone-frontend.git"
@@ -21,6 +24,7 @@
     "angular-materialize": "^0.1.9",
     "angular-simple-logger": "^0.1.7",
     "angular-ui-router": "^0.3.1",
-    "lodash": "^4.13.1"
+    "lodash": "^4.13.1",
+    "superstatic": "^4.0.3"
   }
 }
