@@ -1,9 +1,9 @@
 'use strict';
-const dotenv = require('dotenv').load();
+// const dotenv = require('dotenv').load();
 
 (function() {
     angular
-      .module('scrl-app', ['ui.router','uiGmapgoogle-maps',require('angular-animate'),'ngMaterial'])
+      .module('scrl-app', ['ui.router','uiGmapgoogle-maps','ngAnimate','ngMaterial'])
       .config(config)
       .config(ngGoogleMaps)
 
@@ -11,7 +11,7 @@ const dotenv = require('dotenv').load();
 
   function ngGoogleMaps(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
-      key: process.env.googKey,
+      key:'',
       v: '3.20',
       libraries: 'weather,geometry,visualization'
     });
