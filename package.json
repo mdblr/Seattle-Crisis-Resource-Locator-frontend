@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Seattle Crisis Resources Locator",
   "main": "index.js",
-  "scripts": ,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mdblr/capstone-frontend.git"
