@@ -8,6 +8,8 @@
       .run(run)
 
   config.$inject = ['$stateProvider', '$urlRouterProvider'];
+  ngGoogleMaps.$inject = ['uiGmapGoogleMapApiProvider', 'googKey'];
+  run.$inject = ['$window', '$state'];
 
   function ngGoogleMaps(uiGmapGoogleMapApiProvider, googKey) {
     uiGmapGoogleMapApiProvider.configure({
@@ -44,7 +46,7 @@
   }
 
   function run($window, $state) {
-    $window.onbeforeunload = function () {
+    $window.onbeforeunload = () => {
       $state.go('index');
     };
   }
