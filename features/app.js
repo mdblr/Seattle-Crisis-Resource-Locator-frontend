@@ -2,7 +2,7 @@
 
 (function() {
     angular
-      .module('scrl-app', ['ui.router','uiGmapgoogle-maps','ngAnimate','ngMaterial'])
+      .module('scrl-app', ['ui.router','uiGmapgoogle-maps', require('angular-animate'),'ngMaterial'])
       .config(config)
       .config(ngGoogleMaps)
       .run(run)
@@ -11,7 +11,7 @@
 
   function ngGoogleMaps(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
-      key:'',
+      key:process.env.googKey,
       v: '3.20',
       libraries: 'weather,geometry,visualization'
     });
