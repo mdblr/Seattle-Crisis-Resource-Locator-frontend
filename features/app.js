@@ -9,9 +9,9 @@
 
   config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-  function ngGoogleMaps(uiGmapGoogleMapApiProvider) {
+  function ngGoogleMaps(uiGmapGoogleMapApiProvider, googKey) {
     uiGmapGoogleMapApiProvider.configure({
-      key:process.env.googKey,
+      key:googKey,
       v: '3.20',
       libraries: 'weather,geometry,visualization'
     });
