@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Seattle Crisis Resources Locator",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mdblr/capstone-frontend.git"
@@ -17,6 +16,7 @@
   "homepage": "https://github.com/mdblr/capstone-frontend#readme",
   "dependencies": {
     "angular": "^1.5.7",
+    "angular-animate": "^1.5.8",
     "angular-aria": "^1.5.7",
     "angular-google-maps": "^2.3.3",
     "angular-material": "^1.1.0-rc.5",
