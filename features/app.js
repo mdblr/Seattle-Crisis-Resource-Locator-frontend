@@ -11,7 +11,7 @@
 
   function ngGoogleMaps(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
-      key:'AIzaSyCBJa7t5PUpcnGTVgtoOqvWOBbwuPcPazA',
+      key:'',
       v: '3.20',
       libraries: 'weather,geometry,visualization'
     });
